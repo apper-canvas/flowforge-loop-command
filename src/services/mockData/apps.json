@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "name": "Gmail",
+    "description": "Email service by Google",
+    "category": "Email",
+    "icon": "Mail",
+    "color": "#EA4335",
+    "connected": true,
+    "connectedAt": "2024-01-15T10:00:00Z",
+    "triggers": ["new_email", "important_email", "attachment_received"],
+    "actions": ["send_email", "create_draft", "add_label"]
+  },
+  {
+    "Id": 2,
+    "name": "Slack",
+    "description": "Team communication platform",
+    "category": "Communication",
+    "icon": "MessageSquare",
+    "color": "#4A154B",
+    "connected": true,
+    "connectedAt": "2024-01-15T10:30:00Z",
+    "triggers": ["new_message", "mention", "channel_joined"],
+    "actions": ["send_message", "create_channel", "invite_user"]
+  },
+  {
+    "Id": 3,
+    "name": "Google Drive",
+    "description": "Cloud storage and file sharing",
+    "category": "Storage",
+    "icon": "HardDrive",
+    "color": "#4285F4",
+    "connected": true,
+    "connectedAt": "2024-01-16T09:15:00Z",
+    "triggers": ["file_added", "file_modified", "folder_shared"],
+    "actions": ["upload_file", "create_folder", "share_file"]
+  },
+  {
+    "Id": 4,
+    "name": "Salesforce",
+    "description": "Customer relationship management",
+    "category": "CRM",
+    "icon": "Users",
+    "color": "#00A1E0",
+    "connected": false,
+    "connectedAt": null,
+    "triggers": ["lead_created", "opportunity_closed", "contact_updated"],
+    "actions": ["create_lead", "update_contact", "create_opportunity"]
+  },
+  {
+    "Id": 5,
+    "name": "Twitter",
+    "description": "Social media platform",
+    "category": "Social Media",
+    "icon": "Twitter",
+    "color": "#1DA1F2",
+    "connected": true,
+    "connectedAt": "2024-01-17T14:20:00Z",
+    "triggers": ["new_mention", "new_follower", "tweet_liked"],
+    "actions": ["post_tweet", "send_dm", "like_tweet"]
+  },
+  {
+    "Id": 6,
+    "name": "Typeform",
+    "description": "Online form builder",
+    "category": "Forms",
+    "icon": "FileText",
+    "color": "#262627",
+    "connected": false,
+    "connectedAt": null,
+    "triggers": ["form_submitted", "partial_submission"],
+    "actions": ["create_form", "update_form"]
+  },
+  {
+    "Id": 7,
+    "name": "Mailchimp",
+    "description": "Email marketing platform",
+    "category": "Marketing",
+    "icon": "Send",
+    "color": "#FFE01B",
+    "connected": false,
+    "connectedAt": null,
+    "triggers": ["subscriber_added", "campaign_sent", "unsubscribe"],
+    "actions": ["add_subscriber", "send_campaign", "create_list"]
+  },
+  {
+    "Id": 8,
+    "name": "LinkedIn",
+    "description": "Professional networking platform",
+    "category": "Social Media",
+    "icon": "Linkedin",
+    "color": "#0077B5",
+    "connected": true,
+    "connectedAt": "2024-01-18T11:45:00Z",
+    "triggers": ["connection_request", "post_liked", "message_received"],
+    "actions": ["share_post", "send_message", "connect_user"]
+  },
+  {
+    "Id": 9,
+    "name": "WordPress",
+    "description": "Content management system",
+    "category": "CMS",
+    "icon": "FileText",
+    "color": "#21759B",
+    "connected": true,
+    "connectedAt": "2024-01-12T16:00:00Z",
+    "triggers": ["post_published", "comment_added", "user_registered"],
+    "actions": ["create_post", "update_post", "moderate_comment"]
+  },
+  {
+    "Id": 10,
+    "name": "QuickBooks",
+    "description": "Accounting software",
+    "category": "Finance",
+    "icon": "Calculator",
+    "color": "#0077C5",
+    "connected": false,
+    "connectedAt": null,
+    "triggers": ["invoice_created", "payment_received", "expense_added"],
+    "actions": ["create_invoice", "record_payment", "create_bill"]
+  }
+]

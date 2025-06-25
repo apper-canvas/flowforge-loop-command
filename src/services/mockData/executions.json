@@ -1,0 +1,173 @@
+[
+  {
+    "Id": 1,
+    "workflowId": 1,
+    "status": "success",
+    "startTime": "2024-01-21T14:22:00Z",
+    "endTime": "2024-01-21T14:22:03Z",
+    "logs": [
+      {
+        "timestamp": "2024-01-21T14:22:00Z",
+        "level": "info",
+        "message": "Workflow started",
+        "nodeId": null
+      },
+      {
+        "timestamp": "2024-01-21T14:22:01Z",
+        "level": "info",
+        "message": "Gmail trigger activated: New email from john@example.com",
+        "nodeId": "trigger_1"
+      },
+      {
+        "timestamp": "2024-01-21T14:22:02Z",
+        "level": "info",
+        "message": "Slack message sent to #general",
+        "nodeId": "action_1"
+      },
+      {
+        "timestamp": "2024-01-21T14:22:03Z",
+        "level": "success",
+        "message": "Workflow completed successfully",
+        "nodeId": null
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "workflowId": 3,
+    "status": "success",
+    "startTime": "2024-01-21T11:30:00Z",
+    "endTime": "2024-01-21T11:30:05Z",
+    "logs": [
+      {
+        "timestamp": "2024-01-21T11:30:00Z",
+        "level": "info",
+        "message": "Workflow started",
+        "nodeId": null
+      },
+      {
+        "timestamp": "2024-01-21T11:30:01Z",
+        "level": "info",
+        "message": "WordPress trigger: New post published - 'Building Better APIs'",
+        "nodeId": "trigger_3"
+      },
+      {
+        "timestamp": "2024-01-21T11:30:03Z",
+        "level": "info",
+        "message": "Twitter post created successfully",
+        "nodeId": "action_4"
+      },
+      {
+        "timestamp": "2024-01-21T11:30:05Z",
+        "level": "info",
+        "message": "LinkedIn post created successfully",
+        "nodeId": "action_5"
+      },
+      {
+        "timestamp": "2024-01-21T11:30:05Z",
+        "level": "success",
+        "message": "Workflow completed successfully",
+        "nodeId": null
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "workflowId": 4,
+    "status": "success",
+    "startTime": "2024-01-21T09:45:00Z",
+    "endTime": "2024-01-21T09:45:08Z",
+    "logs": [
+      {
+        "timestamp": "2024-01-21T09:45:00Z",
+        "level": "info",
+        "message": "Workflow started",
+        "nodeId": null
+      },
+      {
+        "timestamp": "2024-01-21T09:45:01Z",
+        "level": "info",
+        "message": "Email trigger: PDF attachment received from vendor@supplier.com",
+        "nodeId": "trigger_4"
+      },
+      {
+        "timestamp": "2024-01-21T09:45:04Z",
+        "level": "info",
+        "message": "File saved to Google Drive: /Invoices/invoice_2024_001.pdf",
+        "nodeId": "action_6"
+      },
+      {
+        "timestamp": "2024-01-21T09:45:08Z",
+        "level": "info",
+        "message": "Bill created in QuickBooks: Bill #QB-2024-001",
+        "nodeId": "action_7"
+      },
+      {
+        "timestamp": "2024-01-21T09:45:08Z",
+        "level": "success",
+        "message": "Workflow completed successfully",
+        "nodeId": null
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "workflowId": 1,
+    "status": "failed",
+    "startTime": "2024-01-20T16:15:00Z",
+    "endTime": "2024-01-20T16:15:02Z",
+    "logs": [
+      {
+        "timestamp": "2024-01-20T16:15:00Z",
+        "level": "info",
+        "message": "Workflow started",
+        "nodeId": null
+      },
+      {
+        "timestamp": "2024-01-20T16:15:01Z",
+        "level": "info",
+        "message": "Gmail trigger activated: New email from sarah@example.com",
+        "nodeId": "trigger_1"
+      },
+      {
+        "timestamp": "2024-01-20T16:15:02Z",
+        "level": "error",
+        "message": "Failed to send Slack message: Channel not found",
+        "nodeId": "action_1"
+      },
+      {
+        "timestamp": "2024-01-20T16:15:02Z",
+        "level": "error",
+        "message": "Workflow failed",
+        "nodeId": null
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "workflowId": 3,
+    "status": "running",
+    "startTime": "2024-01-21T15:30:00Z",
+    "endTime": null,
+    "logs": [
+      {
+        "timestamp": "2024-01-21T15:30:00Z",
+        "level": "info",
+        "message": "Workflow started",
+        "nodeId": null
+      },
+      {
+        "timestamp": "2024-01-21T15:30:01Z",
+        "level": "info",
+        "message": "WordPress trigger: New post published - 'The Future of Web Development'",
+        "nodeId": "trigger_3"
+      },
+      {
+        "timestamp": "2024-01-21T15:30:03Z",
+        "level": "info",
+        "message": "Processing Twitter post...",
+        "nodeId": "action_4"
+      }
+    ]
+  }
+]

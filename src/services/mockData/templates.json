@@ -1,0 +1,226 @@
+[
+  {
+    "Id": 1,
+    "name": "Email to Slack",
+    "description": "Forward important emails to Slack channels",
+    "category": "Communication",
+    "popularity": 95,
+    "nodes": [
+      {
+        "id": "trigger_email",
+        "type": "trigger",
+        "service": "Gmail",
+        "config": {
+          "event": "new_email",
+          "filter": "important"
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "action_slack",
+        "type": "action",
+        "service": "Slack",
+        "config": {
+          "channel": "#general",
+          "message": "New email from {{sender}}: {{subject}}"
+        },
+        "position": { "x": 400, "y": 100 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_email_slack",
+        "source": "trigger_email",
+        "target": "action_slack"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "name": "Lead Qualification",
+    "description": "Qualify and route leads from form submissions",
+    "category": "Sales",
+    "popularity": 88,
+    "nodes": [
+      {
+        "id": "trigger_form",
+        "type": "trigger",
+        "service": "Typeform",
+        "config": {
+          "form_id": "lead_form"
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "condition_budget",
+        "type": "condition",
+        "service": "Filter",
+        "config": {
+          "field": "budget",
+          "operator": "greater_than",
+          "value": 5000
+        },
+        "position": { "x": 300, "y": 100 }
+      },
+      {
+        "id": "action_crm",
+        "type": "action",
+        "service": "Salesforce",
+        "config": {
+          "action": "create_lead",
+          "priority": "high"
+        },
+        "position": { "x": 500, "y": 100 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_form_condition",
+        "source": "trigger_form",
+        "target": "condition_budget"
+      },
+      {
+        "id": "conn_condition_crm",
+        "source": "condition_budget",
+        "target": "action_crm",
+        "condition": "true"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "name": "Social Media Scheduler",
+    "description": "Schedule and post content across social platforms",
+    "category": "Marketing",
+    "popularity": 82,
+    "nodes": [
+      {
+        "id": "trigger_schedule",
+        "type": "trigger",
+        "service": "Schedule",
+        "config": {
+          "time": "09:00",
+          "days": ["monday", "wednesday", "friday"]
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "action_twitter",
+        "type": "action",
+        "service": "Twitter",
+        "config": {
+          "message": "{{content}}"
+        },
+        "position": { "x": 350, "y": 80 }
+      },
+      {
+        "id": "action_linkedin",
+        "type": "action",
+        "service": "LinkedIn",
+        "config": {
+          "message": "{{content}}"
+        },
+        "position": { "x": 350, "y": 120 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_schedule_twitter",
+        "source": "trigger_schedule",
+        "target": "action_twitter"
+      },
+      {
+        "id": "conn_schedule_linkedin",
+        "source": "trigger_schedule",
+        "target": "action_linkedin"
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "name": "File Backup",
+    "description": "Automatically backup files to cloud storage",
+    "category": "Productivity",
+    "popularity": 76,
+    "nodes": [
+      {
+        "id": "trigger_file",
+        "type": "trigger",
+        "service": "Dropbox",
+        "config": {
+          "event": "file_added",
+          "folder": "/Important"
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "action_backup",
+        "type": "action",
+        "service": "Google Drive",
+        "config": {
+          "folder": "Backups",
+          "action": "copy_file"
+        },
+        "position": { "x": 400, "y": 100 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_file_backup",
+        "source": "trigger_file",
+        "target": "action_backup"
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "name": "Customer Support Ticket",
+    "description": "Create tickets from support emails and notify team",
+    "category": "Support",
+    "popularity": 71,
+    "nodes": [
+      {
+        "id": "trigger_support_email",
+        "type": "trigger",
+        "service": "Gmail",
+        "config": {
+          "event": "new_email",
+          "to": "support@company.com"
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "action_zendesk",
+        "type": "action",
+        "service": "Zendesk",
+        "config": {
+          "action": "create_ticket",
+          "priority": "normal"
+        },
+        "position": { "x": 300, "y": 100 }
+      },
+      {
+        "id": "action_teams",
+        "type": "action",
+        "service": "Microsoft Teams",
+        "config": {
+          "channel": "Support",
+          "message": "New ticket created: {{ticket_id}}"
+        },
+        "position": { "x": 500, "y": 100 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_email_zendesk",
+        "source": "trigger_support_email",
+        "target": "action_zendesk"
+      },
+      {
+        "id": "conn_zendesk_teams",
+        "source": "action_zendesk",
+        "target": "action_teams"
+      }
+    ]
+  }
+]

@@ -1,0 +1,208 @@
+[
+  {
+    "Id": 1,
+    "name": "Email to Slack Notification",
+    "description": "Send Slack messages when important emails arrive",
+    "nodes": [
+      {
+        "id": "trigger_1",
+        "type": "trigger",
+        "service": "Gmail",
+        "config": {
+          "event": "new_email",
+          "filter": "important"
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "action_1",
+        "type": "action",
+        "service": "Slack",
+        "config": {
+          "channel": "#general",
+          "message": "New important email from {{sender}}"
+        },
+        "position": { "x": 400, "y": 100 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_1",
+        "source": "trigger_1",
+        "target": "action_1"
+      }
+    ],
+    "enabled": true,
+    "createdAt": "2024-01-15T10:30:00Z",
+    "lastRun": "2024-01-20T14:22:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "Lead Generation Pipeline",
+    "description": "Process new leads from form submissions",
+    "nodes": [
+      {
+        "id": "trigger_2",
+        "type": "trigger",
+        "service": "Typeform",
+        "config": {
+          "form_id": "contact_form"
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "condition_1",
+        "type": "condition",
+        "service": "Filter",
+        "config": {
+          "field": "budget",
+          "operator": "greater_than",
+          "value": 10000
+        },
+        "position": { "x": 300, "y": 100 }
+      },
+      {
+        "id": "action_2",
+        "type": "action",
+        "service": "Salesforce",
+        "config": {
+          "action": "create_lead",
+          "priority": "high"
+        },
+        "position": { "x": 500, "y": 80 }
+      },
+      {
+        "id": "action_3",
+        "type": "action",
+        "service": "Mailchimp",
+        "config": {
+          "list": "prospects",
+          "tag": "qualified"
+        },
+        "position": { "x": 500, "y": 120 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_2",
+        "source": "trigger_2",
+        "target": "condition_1"
+      },
+      {
+        "id": "conn_3",
+        "source": "condition_1",
+        "target": "action_2",
+        "condition": "true"
+      },
+      {
+        "id": "conn_4",
+        "source": "condition_1",
+        "target": "action_3",
+        "condition": "false"
+      }
+    ],
+    "enabled": false,
+    "createdAt": "2024-01-18T09:15:00Z",
+    "lastRun": null
+  },
+  {
+    "Id": 3,
+    "name": "Social Media Cross-Post",
+    "description": "Automatically share blog posts across social platforms",
+    "nodes": [
+      {
+        "id": "trigger_3",
+        "type": "trigger",
+        "service": "WordPress",
+        "config": {
+          "event": "post_published"
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "action_4",
+        "type": "action",
+        "service": "Twitter",
+        "config": {
+          "message": "New blog post: {{title}} {{url}}"
+        },
+        "position": { "x": 350, "y": 80 }
+      },
+      {
+        "id": "action_5",
+        "type": "action",
+        "service": "LinkedIn",
+        "config": {
+          "message": "Check out our latest article: {{title}}"
+        },
+        "position": { "x": 350, "y": 120 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_5",
+        "source": "trigger_3",
+        "target": "action_4"
+      },
+      {
+        "id": "conn_6",
+        "source": "trigger_3",
+        "target": "action_5"
+      }
+    ],
+    "enabled": true,
+    "createdAt": "2024-01-12T16:45:00Z",
+    "lastRun": "2024-01-19T11:30:00Z"
+  },
+  {
+    "Id": 4,
+    "name": "Invoice Processing",
+    "description": "Automatically process and track invoices",
+    "nodes": [
+      {
+        "id": "trigger_4",
+        "type": "trigger",
+        "service": "Email",
+        "config": {
+          "event": "attachment_received",
+          "file_type": "pdf"
+        },
+        "position": { "x": 100, "y": 100 }
+      },
+      {
+        "id": "action_6",
+        "type": "action",
+        "service": "Google Drive",
+        "config": {
+          "folder": "Invoices",
+          "action": "save_file"
+        },
+        "position": { "x": 300, "y": 100 }
+      },
+      {
+        "id": "action_7",
+        "type": "action",
+        "service": "QuickBooks",
+        "config": {
+          "action": "create_bill"
+        },
+        "position": { "x": 500, "y": 100 }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn_7",
+        "source": "trigger_4",
+        "target": "action_6"
+      },
+      {
+        "id": "conn_8",
+        "source": "action_6",
+        "target": "action_7"
+      }
+    ],
+    "enabled": true,
+    "createdAt": "2024-01-10T13:20:00Z",
+    "lastRun": "2024-01-21T09:45:00Z"
+  }
+]
