@@ -48,9 +48,14 @@ const Workflows = () => {
     setFilteredWorkflows(filtered);
   };
 
-  const handleCreateWorkflow = () => {
-    throw new Error('I am error which you cannot solve')
-    //navigate('/canvas');
+const handleCreateWorkflow = () => {
+    try {
+      navigate('/canvas');
+      toast.success('Opening workflow canvas...');
+    } catch (error) {
+      console.error('Navigation error:', error);
+      toast.error('Failed to open workflow canvas');
+    }
   };
 
   const handleToggleWorkflow = async (id) => {
