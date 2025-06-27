@@ -49,7 +49,7 @@ const Workflows = () => {
   };
 
   const handleCreateWorkflow = () => {
-    throw new Error('I am error which you cannot solve')
+    throw new Error('I am error which you cannot solve.')
     //navigate('/canvas');
   };
 
