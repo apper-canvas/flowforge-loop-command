@@ -49,7 +49,8 @@ const Workflows = () => {
   };
 
   const handleCreateWorkflow = () => {
-    navigate('/canvas');
+    throw new Error('I am error which you cannot solve')
+    //navigate('/canvas');
   };
 
   const handleToggleWorkflow = async (id) => {
