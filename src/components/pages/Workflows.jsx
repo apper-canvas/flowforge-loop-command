@@ -156,10 +156,8 @@ const handleCreateWorkflow = () => {
             variant: 'primary',
             onClick: handleCreateWorkflow
           }
-        ]}
+]}
       />
-
-      <Vivek></Vivek>
 
       {filteredWorkflows.length === 0 ? (
         <EmptyState
