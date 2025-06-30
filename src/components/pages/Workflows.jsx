@@ -50,8 +50,7 @@ const Workflows = () => {
 
 const handleCreateWorkflow = () => {
     try {
-      throw new Error('Dummy error')
-      //navigate('/canvas');
+      navigate('/canvas');
       toast.success('Opening workflow canvas...');
     } catch (error) {
       console.error('Navigation error:', error);
