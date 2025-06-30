@@ -49,14 +49,7 @@ const Workflows = () => {
   };
 
 const handleCreateWorkflow = () => {
-    try {
-      throw new Error('Dummy error')
-      /*navigate('/canvas');
-      toast.success('Opening workflow canvas...');*/
-    } catch (error) {
-      console.error('Navigation error:', error);
-      toast.error('Failed to open workflow canvas');
-    }
+    throw new Error('Dummy error')
   };
 
   const handleToggleWorkflow = async (id) => {
